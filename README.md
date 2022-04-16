@@ -1,0 +1,2 @@
+# SCAlgorithm
+Some basic algorithms
