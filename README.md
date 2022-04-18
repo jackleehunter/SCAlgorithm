@@ -5,4 +5,4 @@ Some basic algorithms
 All the codes are used for personal learning, don't used it to product env.
 
 # root_tree
-![root_tree figure.](https://github.com/jackleehunter/sc_algorithm/tree/main/root_tree/doc/rooted_tre.png)
+![root_tree figure.](https://github.com/jackleehunter/sc_algorithm/blob/main/root_tree/doc/rooted_tree.png)
