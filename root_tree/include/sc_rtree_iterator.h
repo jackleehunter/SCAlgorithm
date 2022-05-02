@@ -27,7 +27,6 @@ namespace sc
                 node_base node;
 
                 void increment();
-                void decrement();
             };
 
             template<class Value, class Ref, class Ptr>
@@ -44,6 +43,10 @@ namespace sc
                 SCRTreeIterator(link_type x) {node = x;}
                 SCRTreeIterator(const iterator& it) {node = it.node;}
 
+                SCRTreeIterator& operator= (const iterator& it) {
+                    node = it.node;
+                    return *this;
+                }
                 referance operator* () const {return link_type(node)->value_field;}
                 pointer operator-> () {return &(operator*());}
                 self& operator++ () {
@@ -55,14 +58,11 @@ namespace sc
                     increment();
                     return tmp;
                 }
-                self& operator--() {
-                    decrement();
-                    return *this;
+                bool operator!= (const iterator& it) {
+                    return it.node != node;
                 }
-                self operator--(int) {
-                    self tmp = *this;
-                    decrement();
-                    return tmp;
+                bool operator== (const iterator& it) {
+                    return it.node == node;
                 }
             };
         } // namespace rtree

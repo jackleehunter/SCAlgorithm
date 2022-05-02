@@ -9,12 +9,25 @@ namespace sc
         {
             void SCRTreeIteratorBase::increment()
             {
-                
-            }
-
-            void SCRTreeIteratorBase::decrement()
-            {
-
+                if (node->left_child_)
+                {
+                    node = node->left_child_;
+                }
+                else if (node->right_brother_)
+                {
+                    node = node->right_brother_;
+                }
+                else
+                {
+                    node_base c = node->parent_;
+                    node_base pre = node;
+                    while (c && !c->right_brother_)
+                    {
+                        pre = c;
+                        c = c->parent_;
+                    }
+                    node = c ? c->right_brother_ : pre;
+                }
             }
         } // namespace rtree
         

@@ -25,12 +25,17 @@ namespace sc
             {
                 typedef SCRTreeNodeBase* ptr_base;
                 SCRTreeNodeBase()
+                    : parent_(NULL),
+                    left_child_(NULL),
+                    right_brother_(NULL),
+                    deepth_(0)
                 {}
-                ~SCRTreeNodeBase();
+                virtual ~SCRTreeNodeBase() {}
                 
                 ptr_base parent_;
                 ptr_base left_child_;
                 ptr_base right_brother_;
+                uint32_t deepth_;
             };
 
             template<typename Value>
